@@ -13,15 +13,16 @@ export type BlogCardType = {
     category: string;
     date: string;
     author: AuthorType;
+    content?: string | TrustedHTML;
+    tags?: Array<string>
 }
 export const BlogCardComponent = ({id = '', coverImage = null, title= '', description = '', category = '', date = '', author= {name: '', avatar: ''}}: BlogCardType) => {
 
     const formattedDate = new Date(date).toLocaleDateString()
     return (
-        <li key={id}>
-            <Link href={`/blog/${id}`}>
+        <li key={id} className={'p-4 border-[1px] rounded-md border-gray-200'}>
+            <Link href={`/blog/${id}`} className={'h-full overflow-hidden hover:shadow-md transition-shadow'}>
                 <div className="aspect-video relative overflow-hidden">
-
                         <Image
                             src={coverImage}
                             alt={title}
@@ -29,21 +30,23 @@ export const BlogCardComponent = ({id = '', coverImage = null, title= '', descri
                             className="object-cover transition-transform hover:scale-105"
                         />
                 </div>
-                <div>
+                <div className="p-4 pb-2">
                     <div className="flex items-center justify-between mb-2">
                             <span className="text-xs">
                                 {category}
                             </span>
                         <span className="text-xs">{formattedDate}</span>
                     </div>
+                    <h3 className="font-bold text-xl">{title}</h3>
 
                 </div>
 
-                <h3 className="font-bold text-xl leading-tight">{title}</h3>
+                <div className={'p-4 pt-2'}>
+                    <p className="text-sm line-clamp-3">{description}</p>
 
-                <p className="text-sm line-clamp-3">{description}</p>
+                </div>
 
-                <div>
+                <div className={'p-4 pt-0 flex items-center'}>
                     <Image
                         src={author?.avatar}
                         alt={author?.name}
