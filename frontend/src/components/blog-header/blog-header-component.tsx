@@ -17,13 +17,15 @@ export const BlogHeader = ({blogName = '', mainNavigationLinks = [], searchButto
 
         const mapMainNavigationLinks = () => {
 
-            return <ul>
+            return <ul className={'flex justify-center space-x-10 w-full'}>
                 {
                     mainNavigationLinks?.map((link: NavigationLinkType) =>
-                        <Link  href={link?.href} className="text-sm font-medium hover:text-primary">
-                            {link?.text}
-                        </Link>
+                  <li key={link?.text}>
+                      <Link  href={link?.href} className="text-sm font-medium hover:text-primary">
+                          {link?.text}
+                      </Link>
 
+                  </li>
                     )
                 }
             </ul>
@@ -31,8 +33,8 @@ export const BlogHeader = ({blogName = '', mainNavigationLinks = [], searchButto
         }
 
         return (
-            <header className={'border-b-[1px]'}>
-                <nav className={'container mx-auto px-4 py-4 flex items-center space-x-6'}>
+            <header className={'border-b-[1px] w-full container mx-auto py-4 flex justify-between'}>
+                <nav className={'w-full flex justify-between px-4 py-4 items-center space-x-6'}>
                     <Link href={'/'} className={'font-bold text-xl'}>{blogName}</Link>
                     {mapMainNavigationLinks()}
                     <button onClick={handleSearch} className={'p-2 border-[1px] hover:text-primary text-sm'}>
