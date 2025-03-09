@@ -14,14 +14,15 @@ export type BlogCardType = {
     date: string;
     author: AuthorType;
     content?: string | TrustedHTML;
-    tags?: Array<string>
+    tags?: Array<string>;
+    url: string;
 }
-export const BlogCardComponent = ({id = '', coverImage = null, title= '', description = '', category = '', date = '', author= {name: '', avatar: ''}}: BlogCardType) => {
+export const BlogCardComponent = ({id = '', coverImage = null, title= '', description = '', category = '', date = '', author= {name: '', avatar: ''}, url = ''}: BlogCardType) => {
 
     const formattedDate = new Date(date).toLocaleDateString()
     return (
         <li key={id} className={'p-4 border-[1px] rounded-md border-gray-200'}>
-            <Link href={`/blog/${id}`} className={'h-full overflow-hidden hover:shadow-md transition-shadow'}>
+            <Link href={url} className={'h-full overflow-hidden hover:shadow-md transition-shadow'}>
                 <div className="aspect-video relative overflow-hidden">
                         <Image
                             src={coverImage}
