@@ -52,7 +52,7 @@ This repository contains a minimalistic recipes blog built with Next.js 15, desi
 
 ## Deployment
 
-Deploy to Contentstack and remember to set your environment variables
+Deploy to Contentstack and remember to set your environment variables.
 
 ## Contentstack Setup
 
@@ -61,6 +61,8 @@ Ensure you have the following content types set up in Contentstack:
 * Blog post
 * Headings
 * Footer
+
+Please refer to their respective types for better understanding.
 
 ## Notes
 
