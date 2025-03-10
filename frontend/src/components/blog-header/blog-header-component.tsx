@@ -7,10 +7,12 @@ import {NavigationLinkType} from "@/types/types";
 type HeaderResponseType = {
     navigation: any;
     logo: string;
+    // @typescript-eslint/no-unused-vars
+
     action: any;
 }
 
-export const BlogHeader = (): JSX.Element => {
+export const BlogHeaderComponent = (): JSX.Element => {
 
         const [logo, setLogo] = useState('')
         const [navigationLinks, setNavigationLinks] = useState([])

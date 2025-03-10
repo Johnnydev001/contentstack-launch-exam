@@ -8,8 +8,8 @@ type AuthorType = {
     avatar: string;
 }
 export type BlogCardType = {
-    id: string;
-    cover_image: any;
+    uid: string;
+    cover_image: string;
     title: string;
     description: string;
     category: string;

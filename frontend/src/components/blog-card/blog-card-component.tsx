@@ -3,20 +3,23 @@ import Image from "next/image";
 import {BlogCardType} from "@/types/types";
 
 
-export const BlogCardComponent = ({id = '', cover_image = null, title= '', description = '', category = '', date = '', author= {name: '', avatar: ''}, url = ''}: BlogCardType) => {
+export const BlogCardComponent = ({uid = '', cover_image = '', title= '', description = '', category = '', date = '', author= {name: '', avatar: ''}, url = ''}: BlogCardType) => {
 
     const formattedDate = new Date(date).toLocaleDateString()
     return (
-        <li key={id} className={'p-4 border-[1px] rounded-md border-gray-200 bg-[#EDE9E2] hover:scale-105 hover:duration-700 hover: hover:shadow-[#5A5A5A]'}>
+        <li key={uid} className={'p-4 border-[1px] rounded-md border-gray-200 bg-[#EDE9E2] hover:scale-105 hover:duration-700 hover: hover:shadow-[#5A5A5A]'}>
             <Link href={url} className={'h-full overflow-hidden hover:shadow-md transition-shadow'}>
-                <div className="aspect-video relative overflow-hidden">
+                {cover_image && (
+                    <div className="aspect-video relative overflow-hidden">
                         <Image
                             src={cover_image}
                             alt={title}
                             fill
                             className="object-cover transition-transform hover:scale-105"
                         />
-                </div>
+                    </div>
+                )}
+
                 <div className="p-4 pb-2">
                     <div className="flex items-center align-middle justify-between mb-2">
                             <span className="text-sm text-[#8F9779]">
@@ -33,16 +36,19 @@ export const BlogCardComponent = ({id = '', cover_image = null, title= '', descr
 
                 </div>
 
-                <div className={'p-4 pt-0 flex items-center'}>
-                    <Image
-                        src={author?.avatar}
-                        alt={author?.name}
-                        width={24}
-                        height={24}
-                        className="rounded-full mr-2"
-                    />
-                    <span className="text-xs">{author.name}</span>
-                </div>
+                {author?.avatar && author?.name && (
+                    <div className={'p-4 pt-0 flex items-center'}>
+                        <Image
+                            src={author?.avatar}
+                            alt={author?.name}
+                            width={24}
+                            height={24}
+                            className="rounded-full mr-2"
+                        />
+                        <span className="text-xs">{author.name}</span>
+                    </div>
+                )}
+
             </Link>
 
         </li>

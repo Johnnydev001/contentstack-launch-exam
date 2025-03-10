@@ -12,21 +12,21 @@ export const BlogGridComponent = () => {
 
         const mappedBlogs: Array<BlogCardType> = []
 
-        response?.forEach((elem: { uid: any; cover_image: { url: any; }; title: any; description: any; category: any; date: any; content: any; modular_blocks: { tags_block: { tag: any; }; }[]; }) => {
+        response?.forEach((elem: { url: string; uid: any; cover_image: { url: any; }; title: any; description: any; category: any; date: any; author: { name: string, avatar: { permanent_url: any; }; }[]; content: any; modular_blocks: { tags_block: { tag: any; }; }[]; } ) => {
             mappedBlogs.push({
-                id: elem?.uid,
+                uid: elem?.uid,
                 cover_image: elem?.cover_image?.url,
                 title: elem?.title,
                 description: elem?.description,
                 category: elem?.category,
                 date: elem?.date,
                 author: {
-                    name: '',
-                    avatar: ''
+                    name: elem?.author[0]?.name,
+                    avatar: elem?.author[0]?.avatar?.permanent_url
                 },
                 content: elem?.content,
                 tags: elem?.modular_blocks?.map((block: { tags_block: { tag: any; }; }) => block?.tags_block?.tag),
-                url: `/posts/${elem?.uid}`,
+                url: elem?.url,
             })
         })
         setBlogPosts(mappedBlogs)

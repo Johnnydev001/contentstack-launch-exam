@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import {BlogHeaderComponent} from "@/components/blog-header/blog-header-component";
+import {BlogFooterComponent} from "@/components/blog-footer/blog-footer-component";
+import React, {ReactNode} from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,14 +23,21 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#F8F5F0]`}
       >
-        {children}
+      <BlogHeaderComponent/>
+      <main className=" w-full px-4 pt-12 mx-0 ">
+
+
+      {children}
+
+        </main>
+      <BlogFooterComponent/>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ import {NavigationLinkType} from "@/types/types";
 
 type FooterResponseType = {
     navigation: any;
-    copyright: any;
+    copyright: string;
 }
 
 export const BlogFooterComponent = () => {
@@ -31,7 +31,7 @@ export const BlogFooterComponent = () => {
 
     const mapFooterResponse = (response: FooterResponseType) => {
         setCopyright(response?.copyright)
-        setNavigationLinks(response?.navigation?.links?.map((elem: { links_block: { link: { title: any; href: any; }; }; }) => {
+        setNavigationLinks(response?.navigation?.links?.map((elem: { links_block: { link: { title: string; href: string; }; }; }) => {
             return {
                 text: elem?.links_block?.link?.title,
                 href: elem?.links_block?.link?.href
@@ -56,7 +56,7 @@ export const BlogFooterComponent = () => {
     }, []);
 
     return (
-        <footer className="border-t py-6 items-center flex  mx-auto px-4 text-center grid grid-cols-2 justify-center bg-white">
+        <footer className="border-t py-6 items-center flex  mx-auto px-4 text-center  grid-cols-2 justify-center bg-white">
             <Suspense fallback={<div>Loading...</div>}>
                 <p className={'text-sm'}>{copyright}</p>
                 {mapNavigationLinks()}
