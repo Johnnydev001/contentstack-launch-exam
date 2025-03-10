@@ -2,18 +2,25 @@
 import {Suspense, useEffect, useState} from "react";
 import {getFooterRes} from "@/services/footer/footer-service";
 import Link from "next/link";
+import {NavigationLinkType} from "@/types/types";
+
+
+type FooterResponseType = {
+    navigation: any;
+    copyright: any;
+}
 
 export const BlogFooterComponent = () => {
 
-    const [navigationLinks, setNavigationLinks] = useState([])
+    const [navigationLinks, setNavigationLinks] = useState<Array<NavigationLinkType>>([])
     const [copyright, setCopyright] = useState('')
 
     const mapNavigationLinks = () => {
         return (
-            <nav className={'container mx-auto flex justify-center '}>
+            <nav className={' mx-auto flex justify-center '}>
                 <ul className={'flex space-x-2 justify-center'}>
                     {navigationLinks?.map((link) =>
-                        <li className={'p-2 hover:text-primary text-sm cursor-pointer hover:text-sky-800 hover:font-bold'} key={link?.title}>
+                        <li className={'p-2 hover:text-primary text-sm cursor-pointer hover:text-[#E8B448] hover:font-bold'} key={link?.text}>
                             <Link  href={link?.href} >{link?.text}</Link>
                         </li>
                     )}
@@ -22,9 +29,9 @@ export const BlogFooterComponent = () => {
         )
     }
 
-    const mapFooterResponse = (response) => {
+    const mapFooterResponse = (response: FooterResponseType) => {
         setCopyright(response?.copyright)
-        setNavigationLinks(response?.navigation?.links?.map(elem => {
+        setNavigationLinks(response?.navigation?.links?.map((elem: { links_block: { link: { title: any; href: any; }; }; }) => {
             return {
                 text: elem?.links_block?.link?.title,
                 href: elem?.links_block?.link?.href
@@ -49,7 +56,7 @@ export const BlogFooterComponent = () => {
     }, []);
 
     return (
-        <footer className="border-t py-12 mt-12 container mx-auto px-4 text-center grid grid-cols-2 justify-center">
+        <footer className="border-t py-6 items-center flex  mx-auto px-4 text-center grid grid-cols-2 justify-center bg-white">
             <Suspense fallback={<div>Loading...</div>}>
                 <p className={'text-sm'}>{copyright}</p>
                 {mapNavigationLinks()}

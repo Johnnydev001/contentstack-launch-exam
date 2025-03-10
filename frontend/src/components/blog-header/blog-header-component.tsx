@@ -2,10 +2,12 @@
 import {JSX, useEffect, useState} from "react";
 import Link from "next/link";
 import {getNavigationRes} from "@/services/header/header-service";
+import {NavigationLinkType} from "@/types/types";
 
-type NavigationLinkType = {
-    href: string;
-    text: string;
+type HeaderResponseType = {
+    navigation: any;
+    logo: string;
+    action: any;
 }
 
 export const BlogHeader = (): JSX.Element => {
@@ -14,9 +16,9 @@ export const BlogHeader = (): JSX.Element => {
         const [navigationLinks, setNavigationLinks] = useState([])
         const [action, setAction] = useState('')
 
-        const mapNavigationResponse = (response) => {
+        const mapNavigationResponse = (response: HeaderResponseType) => {
             setLogo(response?.logo || '')
-            setNavigationLinks(response?.navigation?.links?.map(elem => {
+            setNavigationLinks(response?.navigation?.links?.map((elem: { links_block: { link: { title: any; href: any; }; }; }) => {
                 return {
                     text: elem?.links_block?.link?.title,
                     href: elem?.links_block?.link?.href
@@ -49,11 +51,11 @@ export const BlogHeader = (): JSX.Element => {
 
         const mapMainNavigationLinks = () => {
 
-            return <ul role={'navigation'} className={'flex justify-center space-x-10 w-full'}>
+            return <ul role={'navigation'} className={'flex justify-center gap-x-1 w-full'}>
                 {
                     navigationLinks?.map((link: NavigationLinkType) =>
                       <li key={link?.text}>
-                          <Link  href={link?.href} className="text-md p-2 hover:text-primary  cursor-pointer hover:text-sky-800 hover:font-bold">
+                          <Link  href={link?.href} className="text-md p-2 hover:text-primary  cursor-pointer hover:text-[#E8B448] hover:font-bold">
                               {link?.text}
                           </Link>
                       </li>
@@ -62,11 +64,11 @@ export const BlogHeader = (): JSX.Element => {
             </ul>
         }
         return (
-            <header className={'border-b-[1px] w-full container mx-auto py-4 flex justify-between'}>
-                <nav className={'w-full flex justify-between px-4 py-4 items-center space-x-6'}>
-                    <Link href={'/'} className={'font-bold text-xl'}>{logo}</Link>
+            <header className={'border-b-[1px] border-b-[#5A5A5A] w-full mx-auto py-2 flex justify-between bg-white'}>
+                <nav className={'w-full mx-auto flex justify-center px-4 py-4 items-center space-x-6'}>
+                    <Link href={'/'} className={'font-bold text-lg text-[#E8B448] mx-0'}>{logo}</Link>
                     {mapMainNavigationLinks()}
-                    <button onClick={handleSearch} className={'p-2 border-[1px] border-gray-200 rounded-2xl hover:text-primary text-md cursor-pointer hover:bg-sky-800 hover:text-white'}>
+                    <button onClick={handleSearch} className={'p-2 border-[1px] border-gray-200 rounded-2xl hover:text-primary text-md cursor-pointer hover:bg-[#E8B448] hover:text-white'}>
                         {action}
                     </button>
 

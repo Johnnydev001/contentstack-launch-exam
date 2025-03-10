@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
         CONTENTSTACK_PREVIEW_TOKEN: process.env.CONTENTSTACK_PREVIEW_TOKEN,
         CONTENTSTACK_LIVE_EDIT_TAGS: process.env.CONTENTSTACK_LIVE_EDIT_TAGS,
         CONTENTSTACK_API_HOST: process.env.CONTENTSTACK_API_HOST,
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'eu-images.contentstack.com'
+            }
+        ]
     }
 };
 

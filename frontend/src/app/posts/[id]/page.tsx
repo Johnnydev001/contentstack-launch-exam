@@ -1,6 +1,6 @@
 import {BlogHeader} from "@/components/blog-header/blog-header-component";
 import Image from "next/image";
-import {BlogCardType} from "@/components/blog-card/blog-card-component";
+import {BlogCardType} from "@/types/types";
 
 const post: BlogCardType = {
 
@@ -48,11 +48,11 @@ const post: BlogCardType = {
       avatar: "/placeholder.svg?height=40&width=40",
     },
     category: "Italian",
-    coverImage: "/placeholder.svg?height=600&width=1200",
+    cover_image: "/placeholder.svg?height=600&width=1200",
     tags: ["Pizza", "Italian", "Vegetarian", "Dinner"],
 }
 
-export default function BlogPage({params = {id: ''}}: {params: {id: string}}) {
+export default function PostsPage() {
 
   if (!post) {
     return <div>Post not found</div>
@@ -66,19 +66,7 @@ export default function BlogPage({params = {id: ''}}: {params: {id: string}}) {
 
   return (
       <div className="min-h-screen">
-        <BlogHeader blogName={'Blog'} mainNavigationLinks={[{
-          href: '/home',
-          text: 'Home'
-        }, {
-          href: '/articles',
-          text: 'Articles'
-        },
-          {
-            href: '/Contact',
-            text: 'Contact'
-          }]} searchButtonText={'Search'}/>
-
-        <main className="container mx-auto px-4 py-12">
+        <main className="mx-auto px-4 py-12">
           <article className="max-w-3xl mx-auto">
 
             <div className="mb-12">
@@ -107,7 +95,7 @@ export default function BlogPage({params = {id: ''}}: {params: {id: string}}) {
 
             <div className="aspect-[16/9] relative mb-8 rounded-lg overflow-hidden">
               <Image
-                  src={post?.coverImage || "/placeholder.svg"}
+                  src={post?.cover_image || "/placeholder.svg"}
                   alt={post?.title}
                   fill
                   className="object-cover"
@@ -143,7 +131,7 @@ export default function BlogPage({params = {id: ''}}: {params: {id: string}}) {
         </main>
 
         <footer className="border-t py-12 mt-12">
-          <div className="container mx-auto px-4 text-center">
+          <div className="mx-auto px-4 text-center">
             <p>© Copyright João Saraiva.</p>
           </div>
         </footer>
