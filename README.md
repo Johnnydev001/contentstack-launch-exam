@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Contentstack Recipes Blog (Next.js 15)
+
+This repository contains a minimalistic recipes blog built with Next.js 15, designed for the Contentstack Launch Project Creation and Deployment Challenge.
+
+## Features
+
+* Displays a list of blog posts (recipes) fetched from Contentstack.
+* Shows individual recipe details.
+* The header, recipes list, recipe details and footer are separate components.
+* Each one of them are authorable from Contentstack with their own content types.
+* The newsletter form is a dummy form that doesn't submit any data.
 
 ## Getting Started
 
-First, run the development server:
+1.  **Clone the repository:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    ```bash
+    git clone [repository URL]
+    cd [repository name]
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2.  **Install dependencies:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    ```bash
+    npm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3.  **Set up Contentstack environment variables:**
 
-## Learn More
+    * Create a `.env` file in the root directory.
+   * Add your Contentstack API key, delivery token, environment, and region:
 
-To learn more about Next.js, take a look at the following resources:
+       ```
+       CONTENTSTACK_API_KEY: api key,
+       CONTENTSTACK_DELIVERY_TOKEN: delivery token,
+       CONTENTSTACK_BRANCH: contentstack branch,
+       CONTENTSTACK_ENVIRONMENT: environment,
+       CONTENTSTACK_APP_HOST: app host,
+       CONTENTSTACK_PREVIEW_HOST: preview host,
+       CONTENTSTACK_PREVIEW_TOKEN: preview token,
+       CONTENTSTACK_LIVE_EDIT_TAGS: live edit tags,
+       CONTENTSTACK_API_HOST: api host,
+       ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4.  **Run the development server:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+5.  **Open your browser and navigate to `http://localhost:3000`.**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy to Contentstack and remember to set your environment variables
+
+## Contentstack Setup
+
+Ensure you have the following content types set up in Contentstack:
+* Header
+* Blog post
+* Headings
+* Footer
+
+## Notes
+
+This is a basic implementation for the Contentstack Launch Project Creation and Deployment Challenge.
