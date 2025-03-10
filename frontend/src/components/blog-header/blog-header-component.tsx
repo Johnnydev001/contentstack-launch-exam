@@ -68,7 +68,7 @@ export const BlogHeader = (): JSX.Element => {
                 <nav className={'w-full mx-auto flex justify-center px-4 py-4 items-center space-x-6'}>
                     <Link href={'/'} className={'font-bold text-lg text-[#E8B448] mx-0'}>{logo}</Link>
                     {mapMainNavigationLinks()}
-                    <button onClick={handleSearch} className={'p-2 border-[1px] border-gray-200 rounded-2xl hover:text-primary text-md cursor-pointer hover:bg-[#E8B448] hover:text-white'}>
+                    <button onClick={handleSearch} className={'p-2 border-[1px] border-gray-200 rounded-2xl hover:text-primary text-md cursor-pointer bg-[#E8B448] text-white'}>
                         {action}
                     </button>
 
