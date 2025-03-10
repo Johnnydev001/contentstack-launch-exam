@@ -2,12 +2,9 @@
 import {BlogGridComponent} from "@/components/blog-grid/blog-grid-component";
 import {Suspense, useEffect, useState} from "react";
 import {getHeadingRes} from "@/services/heading/heading-service";
-import {usePathname} from "next/navigation";
-
 
 export default function Home() {
 
-    const entryUrl = usePathname()
     const [mainHeadings, setMainHeadings] = useState({
         mainHeading: '',
         subHeading: ''
