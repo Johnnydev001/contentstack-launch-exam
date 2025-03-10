@@ -56,7 +56,7 @@ export const BlogFooterComponent = () => {
     }, []);
 
     return (
-        <footer className="border-t py-6 items-center flex  mx-auto px-4 text-center  grid-cols-2 justify-center bg-white">
+        <footer className="border-t py-6 items-center grid  mx-auto px-4 text-center  grid-cols-2 justify-center bg-white">
             <Suspense fallback={<div>Loading...</div>}>
                 <p className={'text-sm'}>{copyright}</p>
                 {mapNavigationLinks()}

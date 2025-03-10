@@ -51,7 +51,7 @@ export const BlogHeaderComponent = (): JSX.Element => {
 
         const mapMainNavigationLinks = () => {
 
-            return <ul role={'navigation'} className={'flex justify-center gap-x-1 w-full'}>
+            return <ul role={'navigation'} className={'flex justify-center space-x-24 w-full'}>
                 {
                     navigationLinks?.map((link: NavigationLinkType) =>
                       <li key={link?.text}>
@@ -64,9 +64,9 @@ export const BlogHeaderComponent = (): JSX.Element => {
             </ul>
         }
         return (
-            <header className={'border-b-[1px] border-b-[#5A5A5A] w-full mx-auto py-2 flex justify-between bg-white'}>
-                <nav className={'w-full mx-auto flex justify-center px-4 py-4 items-center space-x-6'}>
-                    <Link href={'/public'} className={'font-bold text-lg text-[#E8B448] mx-0'}>{logo}</Link>
+            <header className={'border-b-[1px] border-b-[#5A5A5A] w-full mx-auto px-10 py-2 flex justify-between bg-white'}>
+                <nav className={'w-full mx-auto flex justify-center px-4 py-4 items-center'}>
+                    <Link href={'/'} className={'font-bold text-xl text-[#E8B448] mx-0'}>{logo}</Link>
                     {mapMainNavigationLinks()}
                     <button onClick={handleSearch} className={'p-2 border-[1px] border-gray-200 rounded-2xl hover:text-primary text-md cursor-pointer bg-[#E8B448] text-white'}>
                         {action}
