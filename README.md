@@ -1,6 +1,12 @@
-# Contentstack Recipes Blog (Next.js 15)
+# Contentstack Recipes Blog with Next.js
 
-This repository contains a minimalistic recipes blog built with Next.js 15, designed for the Contentstack Launch Project Creation and Deployment Challenge.
+<img width="1726" alt="image" src="https://github.com/user-attachments/assets/7c74ac76-072a-4c55-8de4-0133d7290f38" />
+
+This repository contains a minimalistic recipes blog built with Next.js 15.
+It was built as an assignment submission for the **Contentstack's Launch Project Creation and Deployment Challenge**.
+
+Please refrain from utilizing this project for the assignment submission.
+It can still be used for learning purposes.
 
 ## Features
 
@@ -9,6 +15,11 @@ This repository contains a minimalistic recipes blog built with Next.js 15, desi
 * The header, recipes list, recipe details and footer are separate components.
 * Each one of them are authorable from Contentstack with their own content types.
 * The newsletter form is a dummy form that doesn't submit any data.
+
+## Technologies
+
+* NextJS 15 (App Router)
+* Tailwind CSS
 
 ## Getting Started
 
@@ -28,18 +39,14 @@ This repository contains a minimalistic recipes blog built with Next.js 15, desi
 3.  **Set up Contentstack environment variables:**
 
     * Create a `.env` file in the root directory.
-   * Add your Contentstack API key, delivery token, environment, and region:
+   * Add your Contentstack API host, CDN, API key, delivery token and environment:
 
        ```
-       CONTENTSTACK_API_KEY: api key,
-       CONTENTSTACK_DELIVERY_TOKEN: delivery token,
-       CONTENTSTACK_BRANCH: contentstack branch,
-       CONTENTSTACK_ENVIRONMENT: environment,
-       CONTENTSTACK_APP_HOST: app host,
-       CONTENTSTACK_PREVIEW_HOST: preview host,
-       CONTENTSTACK_PREVIEW_TOKEN: preview token,
-       CONTENTSTACK_LIVE_EDIT_TAGS: live edit tags,
-       CONTENTSTACK_API_HOST: api host,
+        CONTENTSTACK_API_HOST=CONTENTSTACK_API_HOST
+        CONTENTSTACK_CDN=CONTENTSTACK_CDN
+        CONTENTSTACK_API_KEY=CONTENTSTACK_API_KEY
+        CONTENTSTACK_DELIVERY_TOKEN=CONTENTSTACK_DELIVERY_TOKEN
+        CONTENTSTACK_ENVIRONMENT=CONTENTSTACK_ENVIRONMENT
        ```
 
 4.  **Run the development server:**
@@ -64,6 +71,6 @@ Ensure you have the following content types set up in Contentstack:
 
 Please refer to their respective types for better understanding.
 
-## Notes
+## Notes: 
 
-This is a basic implementation for the Contentstack Launch Project Creation and Deployment Challenge.
+**All rights reserved**
